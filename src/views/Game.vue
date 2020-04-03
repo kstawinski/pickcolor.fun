@@ -101,7 +101,8 @@ export default {
         // this.game.stats.points += 1;
         // Generate new colors pair
         this.generateColors();
-        this.timer();
+        clearInterval(window.abc);
+        this.timer(10);
         // Set time to default value
         // this.game.time = '2';
       } else {
@@ -109,16 +110,16 @@ export default {
         this.endGame();
       }
     },
-    timer() {
-      this.game.time = 10;
+    timer(a) {
+      this.game.time = a;
       // this.$set(this, 'game.time', this.game.timer - 0.1);
-      const int = setInterval(() => {
+      window.abc = setInterval(() => {
         if (this.game.started) {
           this.game.time -= 1;
-          console.log(this.game.time - 1);
+          // console.log(this.game.time - 1);
           // console.log(this.game.time);
           if (this.game.time === 0) {
-            clearInterval(int);
+            clearInterval(window.abc);
             this.endGame();
             // console.log('koniec gry');
           }

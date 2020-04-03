@@ -74,7 +74,7 @@ export default {
   font-size: 20px;
 
     &_title {
-      margin: 0 0 30px 0;
+      margin: 0 0 18px 0;
       font-size: 2.2em;
       position: relative;
       display: inline-block;
