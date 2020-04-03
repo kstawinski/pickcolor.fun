@@ -21,6 +21,8 @@
       </div>
       <Timer v-if="game.started" :time="game.time" />
     </div>
+    <audio id="level-up" crossorigin="anonymous" src="../assets/sounds/level-up.ogg"></audio>
+    <audio id="fail" crossorigin="anonymous" src="../assets/sounds/fail.ogg"></audio>
   </div>
 </template>
 
@@ -103,12 +105,16 @@ export default {
         this.generateColors();
         clearInterval(window.roundInterval);
         this.timer(2);
+        this.playSound('level-up');
         // Set time to default value
         // this.game.time = '2';
       } else {
         // Answer is incorrect, end game
         this.endGame();
       }
+    },
+    playSound(nameFromHTML) {
+      document.getElementById(nameFromHTML).play();
     },
     timer(secondsPerRound) {
       this.game.time = secondsPerRound;
@@ -160,6 +166,7 @@ export default {
       return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
     },
     endGame() {
+      this.playSound('fail');
       // Show alert
       // eslint-disable-line no-alert
       alert(`Koniec gry. Liczba twoich punktów to ${this.game.stats.points}`);
