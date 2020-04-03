@@ -19,18 +19,18 @@
           :left="false"
         />
       </div>
-      <Info v-if="game.started" :level="game.stats.points" />
+      <Timer v-if="game.started" :time="game.time" />
     </div>
   </div>
 </template>
 
 <script>
 import Color from '@/components/Color.vue';
-import Info from '@/components/Info.vue';
+import Timer from '@/components/Timer.vue';
 
 export default {
   name: 'Game',
-  components: { Color, Info },
+  components: { Color, Timer },
   data() {
     return {
       game: {
@@ -41,6 +41,7 @@ export default {
         stats: {
           points: 0,
         },
+        time: undefined,
       },
       colors: [
         {
@@ -87,6 +88,9 @@ export default {
     };
   },
   methods: {
+    // returnTimer() {
+    //   return this.time;
+    // },
     checkAnswer(color) {
       // Start game
       this.game.started = true;
@@ -96,10 +100,27 @@ export default {
         this.game.stats.points += 1;
         // Generate new colors pair
         this.generateColors();
+        // Set time to default value
+        this.game.time = '2';
       } else {
         // Answer is incorrect, end game
         this.endGame();
       }
+    },
+    timer() {
+      this.game.time = '10';
+      // this.$set(this, 'game.time', this.game.timer - 0.1);
+      const int = setInterval(() => {
+        if (this.game.started) {
+          this.game.time -= 1;
+          // console.log(this.game.time);
+          if (this.game.time === 0) {
+            clearInterval(int);
+            this.endGame();
+            // console.log('koniec gry');
+          }
+        }
+      }, 1000);
     },
     generateColors() {
       // Get colors
@@ -110,6 +131,7 @@ export default {
       this.checkAnyDuplicates();
       // Pick good color from selected
       this.game.goodColor = this.generateGoodColor();
+      this.timer();
     },
     checkAnyDuplicates() {
       // Get colors from data
@@ -135,6 +157,7 @@ export default {
     },
     endGame() {
       // Show alert
+      // eslint-disable-line no-alert
       alert(`Koniec gry. Liczba twoich punktów to ${this.game.stats.points}`);
       // Reset data and generate new colors pair
       this.game.stats.points = 0;
