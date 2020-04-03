@@ -2,7 +2,7 @@
   <!-- eslint-disable max-len -->
   <div class="container">
     <div class="about">
-      <h1 class="about_title">How to play?</h1>
+      <h1 class="about_title">Introduction</h1>
       <div class="about_content">
         <p class="about_paragraph">
           This game looks very simple, but...
@@ -76,6 +76,20 @@ export default {
     &_title {
       margin: 0 0 30px 0;
       font-size: 2.2em;
+      position: relative;
+      display: inline-block;
+
+        &:before {
+          content: '';
+          width: 100%;
+          height: 10px;
+          position: absolute;
+          background: linear-gradient(#f27121, #e94057);
+          left: 0;
+          bottom: -3px;
+          opacity: .8;
+          z-index: -1;
+        }
     }
     &_content {
       line-height: 1.4;
@@ -91,28 +105,14 @@ export default {
           color: #fff;
           font-weight: 500;
           position: relative;
-
-            // &:before {
-            //   content: '';
-            //   width: 100%;
-            //   height: 6px;
-            //   position: absolute;
-            //   left: 0;
-            //   bottom: 1px;
-            //   animation: rainbow-bg 10s linear;
-            //   animation-iteration-count: infinite;
-            //   opacity: .6;
-            //   z-index: -1;
-            // }
         }
     }
     &_button {
       display: block;
       padding: 20px 0;
       text-align: center;
-      border: 2px solid #fff;
       border-radius: 50px;
-      background: transparent !important;
+      background: linear-gradient(#f27121, #e94057);
       color: #fff;
       font-weight: 500;
       text-decoration: none;
@@ -121,54 +121,13 @@ export default {
       letter-spacing: 2px;
 
         &:hover {
-          animation: rainbow-bg 25s linear;
-          animation-iteration-count: infinite;
-          border-color: #17171f;
-          color: #17171f;
+          opacity: 0.8;
         }
     }
 }
 .container {
   width: 90vh;
   margin: 0 auto;
-}
-@keyframes rainbow-bg {
-  100%, 0% {
-    background-color: rgb(255,0,0);
-  }
-  8% {
-    background-color: rgb(255,127,0);
-  }
-  16% {
-    background-color: rgb(255,255,0);
-  }
-  25% {
-    background-color: rgb(127,255,0);
-  }
-  33% {
-    background-color: rgb(0,255,0);
-  }
-  41% {
-    background-color: rgb(0,255,127);
-  }
-  50% {
-    background-color: rgb(0,255,255);
-  }
-  58% {
-    background-color: rgb(0,127,255);
-  }
-  66% {
-    background-color: rgb(0,0,255);
-  }
-  75% {
-    background-color: rgb(127,0,255);
-  }
-  83% {
-    background-color: rgb(255,0,255);
-  }
-  91% {
-    background-color: rgb(255,0,127);
-  }
 }
 @media (max-width: 768px) {
   .container {
@@ -182,6 +141,7 @@ export default {
 
       &_title {
         font-size: 1.5em;
+        text-align: center;
       }
   }
   .example {
@@ -191,9 +151,9 @@ export default {
         font-size: 1.4em;
       }
       &_circle {
-        width: 100px;
-        height: 100px;
-        line-height: 100px
+        width: 120px;
+        height: 120px;
+        line-height: 120px
       }
   }
 }
