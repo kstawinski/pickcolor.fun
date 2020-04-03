@@ -9,14 +9,13 @@
           :hex="colors[game.firstColor].hex"
           @clicked="checkAnswer"
           :left="true"
-          @keyup.left="checkAnswer(colors[game.firstColor].hex)"
         />
       </transition>
       <Color
         :hex="colors[game.secondColor].hex"
         @clicked="checkAnswer"
         :left="false"
-        @clickRightArrow="checkAnswer" />
+      />
     </div>
     <Info v-if="game.started" :level="game.stats.points" />
   </div>
@@ -90,51 +89,62 @@ export default {
   },
   methods: {
     checkAnswer(color) {
+      // Start game
       this.game.started = true;
-      // console.log(color);
+      // Check is answer correct
       if (color === this.colors[this.game.goodColor].hex) {
+        // Add point
         this.game.stats.points += 1;
+        // Generate new colors pair
         this.generateColors();
       } else {
+        // Answer is incorrect, end game
         this.endGame();
       }
     },
     generateColors() {
-      // get colors
+      // Get colors
       const colorsLength = this.colors.length - 1;
       this.game.firstColor = this.randomInt(0, colorsLength);
       this.game.secondColor = this.randomInt(0, colorsLength);
+      // Check that generated colors are duplicated
       this.checkAnyDuplicates();
+      // Pick good color from selected
       this.game.goodColor = this.generateGoodColor();
     },
     checkAnyDuplicates() {
+      // Get colors from data
       const { firstColor, secondColor } = this.game;
+      // If duplicated
       if (firstColor === secondColor) {
+        // Generate new pair
         this.generateColors();
       }
     },
     generateGoodColor() {
-      const array = [this.game.firstColor, this.game.secondColor];
-      // console.log(array);
-      // console.log('to jest tablica');
-      // console.log(0, 1);
-      const goodColorNumber = this.randomInt(0, 1);
-      return array[goodColorNumber];
+      // Make array with colors
+      const colors = [this.game.firstColor, this.game.secondColor];
+      // Get and return randomized index
+      const index = this.randomInt(0, 1);
+      return colors[index];
     },
-    // modified code from MDN
+    // Modified code from MDN
     randomInt(min, max) {
       const minimum = Math.ceil(min);
       const maximum = Math.floor(max);
       return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
     },
     endGame() {
+      // Show alert
       alert(`Koniec gry. Liczba twoich punktów to ${this.game.stats.points}`);
+      // Reset data and generate new colors pair
       this.game.stats.points = 0;
       this.game.started = false;
       this.generateColors();
     },
   },
   beforeMount() {
+    // Game init before mount
     this.generateColors();
   },
 };
@@ -142,7 +152,6 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-
     &_title {
       color: #fff;
       font-size: 52px;
@@ -151,22 +160,5 @@ export default {
       text-transform: uppercase;
       font-weight: 500;
     }
-}
-.bounce-enter-active {
-  animation: bounce-in .5s;
-}
-.bounce-leave-active {
-  animation: bounce-in .5s reverse;
-}
-@keyframes bounce-in {
-  0% {
-    transform: scale(0.8);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 </style>

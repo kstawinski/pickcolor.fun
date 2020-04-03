@@ -18,13 +18,13 @@ export default {
   },
   mounted() {
     window.addEventListener('keyup', (event) => {
+      // Left arrow click
       if (event.keyCode === 37 && this.left) {
         this.emitClick();
-        console.log('lewy klik');
       }
+      // Right arrow cick
       if (event.keyCode === 39 && this.left !== true) {
         this.emitClick();
-        console.log('prawy klik');
       }
     });
   },
