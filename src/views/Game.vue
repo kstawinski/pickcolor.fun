@@ -1,23 +1,26 @@
 <template>
-  <div class="home">
-    <div class="home_title" :style="{ color: colors[this.generateGoodColor()].hex }">
-      {{ colors[game.goodColor].name }}
-    </div>
-    <div class="home_colors">
-      <transition name="bounce">
+  <div class="home_container">
+    <div class="home">
+      <div class="home_subtitle">Where is...</div>
+      <div class="home_title" :style="{ color: colors[this.generateGoodColor()].hex }">
+        {{ colors[game.goodColor].name }}
+      </div>
+      <div class="home_colors">
+        <transition name="bounce">
+          <Color
+            :hex="colors[game.firstColor].hex"
+            @clicked="checkAnswer"
+            :left="true"
+          />
+        </transition>
         <Color
-          :hex="colors[game.firstColor].hex"
+          :hex="colors[game.secondColor].hex"
           @clicked="checkAnswer"
-          :left="true"
+          :left="false"
         />
-      </transition>
-      <Color
-        :hex="colors[game.secondColor].hex"
-        @clicked="checkAnswer"
-        :left="false"
-      />
+      </div>
+      <Info v-if="game.started" :level="game.stats.points" />
     </div>
-    <Info v-if="game.started" :level="game.stats.points" />
   </div>
 </template>
 
@@ -148,6 +151,13 @@ export default {
 
 <style lang="scss" scoped>
 .home {
+    &_subtitle {
+      text-align: center;
+      color: #fff;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
     &_title {
       color: #fff;
       font-size: 52px;
@@ -161,9 +171,19 @@ export default {
   .home {
     padding: 30px 0;
 
+      &_container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
       &_title {
-        font-size: 2em;
-        font-weight: 400;
+        font-size: 2.2em;
+        font-weight: 300;
+      }
+      &_colors {
+        text-align: center;
       }
   }
 }

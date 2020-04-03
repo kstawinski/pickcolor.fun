@@ -50,10 +50,16 @@ export default {
 }
 @media (max-width: 768px) {
   .color {
-    width: 100%;
+    width: 80%;
     height: 200px;
     border-radius: 0;
     margin-right: 0;
+    border-radius: 10px;
+    margin: 0 auto;
+
+      &:first-child {
+        margin: 0 auto 10px auto;
+      }
   }
 }
 </style>
