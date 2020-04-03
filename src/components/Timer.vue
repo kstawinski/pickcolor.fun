@@ -2,7 +2,7 @@
   <div class="timer">
     <div class="timer_row">
       <div class="timer_bar">
-        <div class="timer_bar--line" :style="{'width': `${time * 5}%`}"></div>
+        <div class="timer_bar--line" :style="{'width': `${time * 10}%`}"></div>
       </div>
     </div>
     <div class="timer_row timer_text">{{ time }} s</div>
@@ -13,7 +13,7 @@
 export default {
   name: 'Timer',
   props: {
-    time: String,
+    time: Number,
   },
 };
 </script>

@@ -2,7 +2,7 @@
   <div class="home_container">
     <div class="home">
       <div class="home_subtitle">Where is...</div>
-      <div class="home_title" :style="{ color: colors[this.generateGoodColor()].hex }">
+      <div class="home_title" :style="{ color: game.randomColor }">
         {{ colors[game.goodColor].name }}
       </div>
       <div class="home_colors">
@@ -38,6 +38,7 @@ export default {
         firstColor: undefined,
         secondColor: undefined,
         goodColor: undefined,
+        randomColor: undefined,
         stats: {
           points: 0,
         },
@@ -97,22 +98,24 @@ export default {
       // Check is answer correct
       if (color === this.colors[this.game.goodColor].hex) {
         // Add point
-        this.game.stats.points += 1;
+        // this.game.stats.points += 1;
         // Generate new colors pair
         this.generateColors();
+        this.timer();
         // Set time to default value
-        this.game.time = '2';
+        // this.game.time = '2';
       } else {
         // Answer is incorrect, end game
         this.endGame();
       }
     },
     timer() {
-      this.game.time = '10';
+      this.game.time = 10;
       // this.$set(this, 'game.time', this.game.timer - 0.1);
       const int = setInterval(() => {
         if (this.game.started) {
           this.game.time -= 1;
+          console.log(this.game.time - 1);
           // console.log(this.game.time);
           if (this.game.time === 0) {
             clearInterval(int);
@@ -131,7 +134,7 @@ export default {
       this.checkAnyDuplicates();
       // Pick good color from selected
       this.game.goodColor = this.generateGoodColor();
-      this.timer();
+      this.game.randomColor = this.colors[this.generateGoodColor()].hex;
     },
     checkAnyDuplicates() {
       // Get colors from data
@@ -162,7 +165,7 @@ export default {
       // Reset data and generate new colors pair
       this.game.stats.points = 0;
       this.game.started = false;
-      this.generateColors();
+      // this.generateColors();
     },
   },
   beforeMount() {
