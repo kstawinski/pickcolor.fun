@@ -48,4 +48,12 @@ export default {
       opacity: .85;
     }
 }
+@media (max-width: 768px) {
+  .color {
+    width: 100%;
+    height: 200px;
+    border-radius: 0;
+    margin-right: 0;
+  }
+}
 </style>

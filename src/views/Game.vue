@@ -157,4 +157,14 @@ export default {
       font-weight: 500;
     }
 }
+@media (max-width: 768px) {
+  .home {
+    padding: 30px 0;
+
+      &_title {
+        font-size: 2em;
+        font-weight: 400;
+      }
+  }
+}
 </style>
