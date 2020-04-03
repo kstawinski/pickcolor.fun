@@ -26,7 +26,7 @@ import Color from '@/components/Color.vue';
 import Info from '@/components/Info.vue';
 
 export default {
-  name: 'Home',
+  name: 'Game',
   components: { Color, Info },
   data() {
     return {
