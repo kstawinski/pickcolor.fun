@@ -2,7 +2,7 @@
   <div class="timer">
     <div class="timer_row">
       <div class="timer_bar">
-        <div class="timer_bar--line" :style="{'width': `${time * 10}%`}"></div>
+        <div class="timer_bar--line" :style="{'width': `${time * 50}%`}"></div>
       </div>
     </div>
     <div class="timer_row timer_text">{{ time }} s</div>
@@ -43,7 +43,6 @@ export default {
       height: 10px;
       position: relative;
       width: 100%;
-      transition: 0.3s all;
 
         &--line {
           background: linear-gradient(#f27121, #e94057);
@@ -52,6 +51,7 @@ export default {
           left: 0;
           border-radius: 50px;
           height: 10px;
+          transition: 0.1s all;
         }
     }
 }
