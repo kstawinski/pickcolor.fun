@@ -77,10 +77,6 @@ export default {
           hex: '#585858',
         },
         {
-          name: 'Gray',
-          hex: '#585858',
-        },
-        {
           name: 'Brown',
           hex: '#502800',
         },
