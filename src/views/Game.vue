@@ -19,7 +19,13 @@
           :left="false"
         />
       </div>
-      <Timer v-if="game.started" :time="game.time" />
+      <div class="top" v-if="game.started">
+        <Timer class="top_timer" :time="game.time" />
+        <div class="top_level level">
+          <div class="level_icon">👍</div>
+          <div class="level_text">{{ game.stats.points }}</div>
+        </div>
+      </div>
     </div>
     <audio id="level-up" crossorigin="anonymous" src="../assets/sounds/level-up.ogg"></audio>
     <audio id="fail" crossorigin="anonymous" src="../assets/sounds/fail.ogg"></audio>
@@ -100,7 +106,7 @@ export default {
       // Check is answer correct
       if (color === this.colors[this.game.goodColor].hex) {
         // Add point
-        // this.game.stats.points += 1;
+        this.game.stats.points += 1;
         // Generate new colors pair
         this.generateColors();
         clearInterval(window.roundInterval);
@@ -184,6 +190,33 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 30px;
+  width: 100vw;
+
+    &_timer {
+      width: 80%;
+    }
+    &_level {
+      width: 10%;
+    }
+}
+.level {
+  color: #fff;
+  margin-left: 10px;
+  display: flex;
+
+    &_text {
+      padding-left: 5px;
+      font-weight: 500;
+    }
+}
 .home {
     &_subtitle {
       text-align: center;

@@ -26,11 +26,6 @@ export default {
   color: #fff;
   font-weight: 400;
   font-size: 18px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 30px;
-  width: 100vw;
 
     &_row {
       &:first-child {
