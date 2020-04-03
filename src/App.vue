@@ -14,11 +14,15 @@
 body {
   font-family: 'Rubik', sans-serif;
   -webkit-font-smoothing: antialiased;
-  width: 100vw;
-  height: 100vh;
   background-color: #17171f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+@media (min-width: 767px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 </style>

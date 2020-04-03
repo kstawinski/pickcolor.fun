@@ -170,4 +170,31 @@ export default {
     background-color: rgb(255,0,127);
   }
 }
+@media (max-width: 768px) {
+  .container {
+    padding: 0 30px;
+    width: unset;
+    margin: unset;
+  }
+  .about {
+    margin: 50px 0;
+    font-size: 1em;
+
+      &_title {
+        font-size: 1.5em;
+      }
+  }
+  .example {
+    padding: 30px 0;
+
+      &_task {
+        font-size: 1.4em;
+      }
+      &_circle {
+        width: 100px;
+        height: 100px;
+        line-height: 100px
+      }
+  }
+}
 </style>
