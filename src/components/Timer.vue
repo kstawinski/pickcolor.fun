@@ -5,7 +5,7 @@
         <div class="timer_bar--line" :style="{'width': `${time * 50}%`}"></div>
       </div>
     </div>
-    <div class="timer_row timer_text">{{ time }} s</div>
+    <div class="timer_row timer_text"><span class="timer_text--highlight">{{ time }}</span> s</div>
   </div>
 </template>
 
@@ -52,6 +52,11 @@ export default {
           border-radius: 50px;
           height: 10px;
           transition: 0.1s all;
+        }
+    }
+    &_text {
+        &--highlight {
+          font-weight: 500;
         }
     }
 }
