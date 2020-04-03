@@ -4,11 +4,14 @@
       {{ colors[game.goodColor].name }}
     </div>
     <div class="home_colors">
-      <Color
-        :hex="colors[game.firstColor].hex"
-        @clicked="checkAnswer"
-        :left="true"
-        @keyup.left="checkAnswer(colors[game.firstColor].hex)" />
+      <transition name="bounce">
+        <Color
+          :hex="colors[game.firstColor].hex"
+          @clicked="checkAnswer"
+          :left="true"
+          @keyup.left="checkAnswer(colors[game.firstColor].hex)"
+        />
+      </transition>
       <Color
         :hex="colors[game.secondColor].hex"
         @clicked="checkAnswer"
@@ -49,6 +52,38 @@ export default {
         {
           name: 'Yellow',
           hex: '#eff22e',
+        },
+        {
+          name: 'Green',
+          hex: '#69db4d',
+        },
+        {
+          name: 'White',
+          hex: '#ffffff',
+        },
+        {
+          name: 'Pink',
+          hex: '#ed2dd3',
+        },
+        {
+          name: 'Orange',
+          hex: '#f5980c',
+        },
+        {
+          name: 'Purple',
+          hex: '#6c12cc',
+        },
+        {
+          name: 'Gray',
+          hex: '#585858',
+        },
+        {
+          name: 'Gray',
+          hex: '#585858',
+        },
+        {
+          name: 'Brown',
+          hex: '#502800',
         },
       ],
     };
@@ -110,12 +145,28 @@ export default {
 
     &_title {
       color: #fff;
-      font-size: 54px;
+      font-size: 52px;
       text-align: center;
       margin-bottom: 50px;
+      text-transform: uppercase;
+      font-weight: 500;
     }
-    &_colors {
-      // height: 80%;
-    }
+}
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 </style>
