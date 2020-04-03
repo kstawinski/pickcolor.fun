@@ -236,7 +236,7 @@ export default {
 }
 @media (max-width: 768px) {
   .home {
-    padding: 30px 0;
+    padding: 60px 0 30px 0;
 
       &_container {
         width: 100vw;
