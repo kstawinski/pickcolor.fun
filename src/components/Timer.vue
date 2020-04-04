@@ -63,6 +63,12 @@ export default {
       &_bar {
         width: 95%;
       }
+      &_row {
+        width: 70%;
+      }
+      &_text {
+        width: 30%;
+      }
   }
 }
 </style>
