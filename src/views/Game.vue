@@ -6,13 +6,11 @@
         {{ colors[game.goodColor].name }}
       </div>
       <div class="home_colors">
-        <transition name="bounce">
-          <Color
-            :hex="colors[game.firstColor].hex"
-            @clicked="checkAnswer"
-            :left="true"
-          />
-        </transition>
+        <Color
+          :hex="colors[game.firstColor].hex"
+          @clicked="checkAnswer"
+          :left="true"
+        />
         <Color
           :hex="colors[game.secondColor].hex"
           @clicked="checkAnswer"
