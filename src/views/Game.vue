@@ -21,10 +21,7 @@
       </div>
       <div class="top" v-if="game.started">
         <Timer class="top_timer" :time="game.time" />
-        <div class="top_level level">
-          <div class="level_icon">👍</div>
-          <div class="level_text">{{ game.stats.points }}</div>
-        </div>
+        <Level class="top_level" :level="game.stats.points" />
       </div>
     </div>
     <audio id="level-up" crossorigin="anonymous" src="../assets/sounds/level-up.ogg"></audio>
@@ -35,10 +32,11 @@
 <script>
 import Color from '@/components/Color.vue';
 import Timer from '@/components/Timer.vue';
+import Level from '@/components/Level.vue';
 
 export default {
   name: 'Game',
-  components: { Color, Timer },
+  components: { Color, Timer, Level },
   data() {
     return {
       game: {
@@ -205,16 +203,6 @@ export default {
     }
     &_level {
       width: 10%;
-    }
-}
-.level {
-  color: #fff;
-  margin-left: 10px;
-  display: flex;
-
-    &_text {
-      padding-left: 5px;
-      font-weight: 500;
     }
 }
 .home {
