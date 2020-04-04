@@ -25,7 +25,7 @@
     <audio id="level-up" crossorigin="anonymous" src="../assets/sounds/level-up.ogg"></audio>
     <audio id="fail" crossorigin="anonymous" src="../assets/sounds/fail.ogg"></audio>
     <transition name="bounce">
-      <Summary v-if="game.showSummary" />
+      <Summary v-if="game.showSummary" @close="game.showSummary = !game.showSummary" />
     </transition>
   </div>
 </template>

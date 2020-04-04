@@ -17,7 +17,7 @@ export default {
       return sessionStorage.score;
     },
     redirectToGame() {
-      // this.$router.push('game');
+      this.$emit('close');
     },
   },
 };
