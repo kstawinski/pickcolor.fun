@@ -115,7 +115,7 @@ export default {
       // Stop timer
       clearInterval(window.roundInterval);
       // Run timer with new interval
-      this.timer(2);
+      this.runTimer();
       // Play level-up notification
       this.playSound('level-up', 0.1);
     },
@@ -134,6 +134,17 @@ export default {
           }
         }
       }, 100);
+    },
+    runTimer() {
+      if (this.game.stats.points <= 20) {
+        this.timer(2);
+      } else if (this.game.stats.points > 20 && this.game.stats.points < 40) {
+        this.timer(1.7);
+      } else if (this.game.stats.points > 40 && this.game.stats.points < 60) {
+        this.timer(1.5);
+      } else {
+        this.timer(1.3);
+      }
     },
     generateColors() {
       // Get colors
