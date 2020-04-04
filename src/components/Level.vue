@@ -16,12 +16,13 @@ export default {
 
 <style lang="scss" scoped>
 .level {
-  color: #fff;
   display: flex;
 
     &_text {
       padding-left: 5px;
       font-weight: 500;
+      color: #fad478;
+      text-shadow: 0 0 15px #fad478;
     }
 }
 </style>

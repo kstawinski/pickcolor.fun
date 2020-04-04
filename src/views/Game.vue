@@ -211,7 +211,7 @@ export default {
       width: 80%;
     }
     &_level {
-      width: 10%;
+      width: 15%;
     }
 }
 .home {
