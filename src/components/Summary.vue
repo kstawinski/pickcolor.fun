@@ -5,7 +5,6 @@
       <p class="summary_text">Maybe you'll try one more time?</p>
       <button class="summary_button" @click="redirectToGame">Try again</button>
     </div>
-    <div class="summary_background">.</div>
   </div>
 </template>
 
