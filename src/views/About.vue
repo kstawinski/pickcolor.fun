@@ -13,8 +13,12 @@
         <div class="about_paragraph example">
           <div class="example_task">Purple</div>
           <div class="example_row">
-            <div class="example_circle">Incorrect</div>
-            <div class="example_circle">Correct</div>
+            <div class="example_circle">
+              <img class="example_image" src="../assets/icons/close.svg" alt="Incorrect symbol">
+            </div>
+            <div class="example_circle">
+              <img class="example_image" src="../assets/icons/checked.svg" alt="Correct symbol">
+            </div>
           </div>
         </div>
         <p class="about_paragraph about_paragraph--info">
@@ -51,13 +55,16 @@ export default {
     &_circle {
       width: 200px;
       height: 200px;
-      line-height: 200px;
+      // line-height: 200px;
       text-align: center;
       border-radius: 50%;
       color: #fff;
-      transform: rotate(-4deg);
+      // transform: rotate(-4deg);
       font-weight: 500;
       letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
         &:first-child {
           background: #4287f5;
@@ -66,6 +73,9 @@ export default {
         &:nth-child(2) {
           background: #6c12cc;
         }
+    }
+    &_image {
+      width: 30%;
     }
 }
 .about {
@@ -152,7 +162,7 @@ export default {
       &_circle {
         width: 120px;
         height: 120px;
-        line-height: 120px;
+        // line-height: 120px;
       }
   }
 }
@@ -164,9 +174,17 @@ export default {
       &_content {
         margin-bottom: 15px;
       }
+      &_title {
+        margin: 0 0 25px 0;
+      }
   }
   .example {
     padding: 10px 0;
+
+      &_circle {
+        width: 100px;
+        height: 100px;
+      }
   }
 }
 </style>
