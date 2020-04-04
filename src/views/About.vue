@@ -156,4 +156,17 @@ export default {
       }
   }
 }
+// iPhone 5/SE
+@media (max-width: 320px) {
+  .about {
+    margin: 20px 0;
+
+      &_content {
+        margin-bottom: 15px;
+      }
+  }
+  .example {
+    padding: 10px 0;
+  }
+}
 </style>
