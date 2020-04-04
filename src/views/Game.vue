@@ -275,7 +275,7 @@ export default {
   animation: bounce-in .5s;
 }
 .bounce-leave-active {
-  animation: bounce-in .5s reverse;
+  animation: bounce-out .3s;
 }
 @keyframes bounce-in {
   0% {
@@ -286,6 +286,12 @@ export default {
   }
   100% {
     transform: scale(1);
+  }
+}
+@keyframes bounce-out {
+  100% {
+    opacity: 0;
+    transform: rotate(360deg);
   }
 }
 </style>
