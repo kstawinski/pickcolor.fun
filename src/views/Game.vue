@@ -184,6 +184,7 @@ export default {
       this.playSound('fail', 0.1);
       // eslint-disable-line no-alert
       // alert(`Koniec gry. Liczba twoich punktów to ${this.game.stats.points}`);
+      sessionStorage.score = this.game.stats.points;
       this.$router.push('summary');
       // Reset game data
       this.resetAllFields();

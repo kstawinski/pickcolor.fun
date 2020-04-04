@@ -13,8 +13,7 @@ export default {
   name: 'Summary',
   methods: {
     getLastScore() {
-      // Value for design testing
-      return 15;
+      return sessionStorage.score;
     },
   },
 };
