@@ -60,4 +60,11 @@ export default {
       }
   }
 }
+
+// iPhone 5/SE
+@media (max-width: 320px) {
+  .color {
+    height: 160px;
+  }
+}
 </style>

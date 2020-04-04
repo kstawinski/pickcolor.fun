@@ -57,4 +57,12 @@ export default {
         }
     }
 }
+// iPhone 5/SE
+@media (max-width: 320px) {
+  .timer {
+      &_bar {
+        width: 95%;
+      }
+  }
+}
 </style>
