@@ -1,13 +1,12 @@
 <template>
-  <transition name="bounce">
-    <div class="summary">
-      <div class="summary_container">
-        <div class="summary_result">👌 <span class="summary_score">{{ getLastScore() }}</span></div>
-        <p class="summary_text">Maybe you'll try one more time?</p>
-        <button class="summary_button" @click="redirectToGame">Try again</button>
-      </div>
+  <div class="summary">
+    <div class="summary_container">
+      <div class="summary_result">👌 <span class="summary_score">{{ getLastScore() }}</span></div>
+      <p class="summary_text">Maybe you'll try one more time?</p>
+      <button class="summary_button" @click="redirectToGame">Try again</button>
     </div>
-  </transition>
+    <div class="summary_background">.</div>
+  </div>
 </template>
 
 <script>
@@ -18,7 +17,7 @@ export default {
       return sessionStorage.score;
     },
     redirectToGame() {
-      this.$router.push('game');
+      // this.$router.push('game');
     },
   },
 };
@@ -26,6 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 .summary {
+  background-color: rgba(#17171f, 0.95);
   display: flex;
   align-items: center;
   justify-content: spacebetween;
@@ -33,11 +33,15 @@ export default {
   height: 100vh;
   font-size: 1.2em;
   color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
 
     &_container {
       text-align: center;
       padding: 0 20px;
       margin: 0 auto;
+      z-index: 2;
     }
     &_result {
       font-size: 3em;
@@ -65,22 +69,5 @@ export default {
           box-shadow: 0 0 10px rgba(237, 78, 60, 0.6);
         }
     }
-}
-.bounce-enter-active {
-  animation: bounce-in .5s;
-}
-.bounce-leave-active {
-  animation: bounce-in .5s reverse;
-}
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 </style>

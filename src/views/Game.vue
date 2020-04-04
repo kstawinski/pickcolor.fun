@@ -24,6 +24,9 @@
     </div>
     <audio id="level-up" crossorigin="anonymous" src="../assets/sounds/level-up.ogg"></audio>
     <audio id="fail" crossorigin="anonymous" src="../assets/sounds/fail.ogg"></audio>
+    <transition name="bounce">
+      <Summary v-if="game.showSummary" />
+    </transition>
   </div>
 </template>
 
@@ -31,14 +34,21 @@
 import Color from '@/components/Color.vue';
 import Timer from '@/components/Timer.vue';
 import Level from '@/components/Level.vue';
+import Summary from '@/components/Summary.vue';
 
 export default {
   name: 'Game',
-  components: { Color, Timer, Level },
+  components: {
+    Color,
+    Timer,
+    Level,
+    Summary,
+  },
   data() {
     return {
       game: {
         started: false,
+        showSummary: false,
         firstColor: undefined,
         secondColor: undefined,
         goodColor: undefined,
@@ -185,7 +195,7 @@ export default {
       // eslint-disable-line no-alert
       // alert(`Koniec gry. Liczba twoich punktów to ${this.game.stats.points}`);
       sessionStorage.score = this.game.stats.points;
-      this.$router.push('summary');
+      this.game.showSummary = true;
       // Reset game data
       this.resetAllFields();
     },
@@ -259,6 +269,23 @@ export default {
       &_colors {
         text-align: center;
       }
+  }
+}
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 </style>
