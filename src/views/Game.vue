@@ -215,21 +215,18 @@ export default {
     }
 }
 .home {
-    &_subtitle {
-      text-align: center;
-      color: #fff;
-      font-weight: 500;
-      text-transform: uppercase;
-      margin-bottom: 2px;
-    }
-    &_title {
-      color: #fff;
-      font-size: 52px;
-      text-align: center;
-      margin-bottom: 50px;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    text-transform: uppercase;
+
+      &_subtitle {
+        margin-bottom: 2px;
+      }
+      &_title {
+        font-size: 52px;
+        margin-bottom: 50px;
+      }
 }
 @media (max-width: 768px) {
   .home {

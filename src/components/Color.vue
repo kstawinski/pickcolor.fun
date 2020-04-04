@@ -52,8 +52,6 @@ export default {
   .color {
     width: 80%;
     height: 200px;
-    border-radius: 0;
-    margin-right: 0;
     border-radius: 10px;
     margin: 0 auto;
 

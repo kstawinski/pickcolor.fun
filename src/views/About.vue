@@ -36,13 +36,13 @@ export default {
 .example {
   text-align: center;
   padding: 50px 0;
+  text-transform: uppercase;
 
     &_row {
       display: flex;
       justify-content: center;
     }
     &_task {
-      text-transform: uppercase;
       font-size: 38px;
       margin: 0 0 20px 0;
       color: #4287f5;
@@ -56,7 +56,6 @@ export default {
       border-radius: 50%;
       color: #fff;
       transform: rotate(-4deg);
-      text-transform: uppercase;
       font-weight: 500;
       letter-spacing: 2px;
 
@@ -153,7 +152,7 @@ export default {
       &_circle {
         width: 120px;
         height: 120px;
-        line-height: 120px
+        line-height: 120px;
       }
   }
 }

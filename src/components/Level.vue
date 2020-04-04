@@ -17,7 +17,6 @@ export default {
 <style lang="scss" scoped>
 .level {
   color: #fff;
-  margin-left: 10px;
   display: flex;
 
     &_text {

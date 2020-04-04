@@ -50,6 +50,8 @@ export default {
         }
     }
     &_text {
+      text-transform: none;
+
         &--highlight {
           font-weight: 500;
         }
