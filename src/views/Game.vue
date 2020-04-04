@@ -93,32 +93,31 @@ export default {
     };
   },
   methods: {
-    // returnTimer() {
-    //   return this.time;
-    // },
+    initGame() {
+      this.generateColors();
+    },
     checkAnswer(color) {
-      // Start game
-      this.game.started = true;
       // Check is answer correct
       if (color === this.colors[this.game.goodColor].hex) {
-        // Add point
-        this.game.stats.points += 1;
-        // Generate new colors pair
-        this.generateColors();
-        clearInterval(window.roundInterval);
-        this.timer(2);
-        this.playSound('level-up', 0.1);
-        // Set time to default value
-        // this.game.time = '2';
+        this.levelUp();
+        // This if-line is for 1st level
+        // Game is starting by clicking a button with correct answer, then timer starts
+        if (!this.game.started) this.game.started = true;
       } else {
-        // Answer is incorrect, end game
         this.endGame();
       }
     },
-    playSound(nameFromHTML, volume) {
-      const audio = document.getElementById(nameFromHTML);
-      audio.volume = volume;
-      audio.play();
+    levelUp() {
+      // Add 1 point (level)
+      this.game.stats.points += 1;
+      // Generate new colors pair
+      this.generateColors();
+      // Stop timer
+      clearInterval(window.roundInterval);
+      // Run timer with new interval
+      this.timer(2);
+      // Play level-up notification
+      this.playSound('level-up', 0.1);
     },
     timer(secondsPerRound) {
       this.game.time = secondsPerRound;
@@ -143,9 +142,9 @@ export default {
       this.game.secondColor = this.randomInt(0, colorsLength);
       // Check that generated colors are duplicated
       this.checkAnyDuplicates();
-      // Pick good color from selected
-      this.game.goodColor = this.generateGoodColor();
-      this.game.randomColor = this.colors[this.generateGoodColor()].hex;
+      // Pick correct and random color from selected
+      this.game.goodColor = this.pickRandomColor();
+      this.game.randomColor = this.colors[this.pickRandomColor()].hex;
     },
     checkAnyDuplicates() {
       // Get colors from data
@@ -156,7 +155,7 @@ export default {
         this.generateColors();
       }
     },
-    generateGoodColor() {
+    pickRandomColor() {
       // Make array with colors
       const colors = [this.game.firstColor, this.game.secondColor];
       // Get and return randomized index
@@ -170,19 +169,29 @@ export default {
       return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
     },
     endGame() {
+      // Play sound notification
       this.playSound('fail', 0.1);
-      // Show alert
       // eslint-disable-line no-alert
       alert(`Koniec gry. Liczba twoich punktów to ${this.game.stats.points}`);
-      // Reset data and generate new colors pair
-      this.game.stats.points = 0;
+      // Reset game data
+      this.resetAllFields();
+    },
+    playSound(nameFromHTML, volume) {
+      const audio = document.getElementById(nameFromHTML);
+      audio.volume = volume;
+      audio.play();
+    },
+    resetAllFields() {
+      // Set round values to default
       this.game.started = false;
-      // this.generateColors();
+      this.game.stats.points = 0;
+      // Generate new colors
+      this.generateColors();
     },
   },
   beforeMount() {
     // Game init before mount
-    this.generateColors();
+    this.initGame();
   },
 };
 </script>
