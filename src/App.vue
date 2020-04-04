@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss">
-@import url('https://meyerweb.com/eric/tools/css/reset/reset.css');
+@import url('assets/reset.css');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
 
 * {
