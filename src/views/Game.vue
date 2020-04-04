@@ -109,7 +109,7 @@ export default {
         this.generateColors();
         clearInterval(window.roundInterval);
         this.timer(2);
-        this.playSound('level-up');
+        this.playSound('level-up', 0.1);
         // Set time to default value
         // this.game.time = '2';
       } else {
@@ -117,8 +117,10 @@ export default {
         this.endGame();
       }
     },
-    playSound(nameFromHTML) {
-      document.getElementById(nameFromHTML).play();
+    playSound(nameFromHTML, volume) {
+      const audio = document.getElementById(nameFromHTML);
+      audio.volume = volume;
+      audio.play();
     },
     timer(secondsPerRound) {
       this.game.time = secondsPerRound;
@@ -170,7 +172,7 @@ export default {
       return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
     },
     endGame() {
-      this.playSound('fail');
+      this.playSound('fail', 0.1);
       // Show alert
       // eslint-disable-line no-alert
       alert(`Koniec gry. Liczba twoich punktów to ${this.game.stats.points}`);
