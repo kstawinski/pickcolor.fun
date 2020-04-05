@@ -21,9 +21,7 @@
             </div>
           </div>
         </div>
-        <p class="about_paragraph about_paragraph--info">
-          Use arrow keyboard for faster picking the color. Click <code>↑</code> to select top color, <code>↓</code> to bottom).
-        </p>
+        <ArrowNav class="about_paragraph" />
       </div>
       <router-link to="/game" class="about_button">Start game</router-link>
     </div>
@@ -31,8 +29,11 @@
 </template>
 
 <script>
+import ArrowNav from '@/components/ArrowNav.vue';
+
 export default {
   name: 'About',
+  components: { ArrowNav },
 };
 </script>
 
@@ -115,15 +116,6 @@ export default {
           font-weight: 500;
           position: relative;
         }
-        &--info {
-          code {
-            margin: 0 5px;
-            padding: 2px 7px;
-            border-radius: 4px;
-            color: #8e8e8e;
-            border: 1px solid #464646;
-          }
-        }
     }
     &_button {
       display: block;
@@ -194,17 +186,6 @@ export default {
         width: 100px;
         height: 100px;
       }
-  }
-}
-
-// Laptop
-@media (max-width: 900px) {
-  .about {
-    &_paragraph {
-      &--info {
-        display: none;
-      }
-    }
   }
 }
 </style>
