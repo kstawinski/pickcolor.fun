@@ -22,7 +22,7 @@
           </div>
         </div>
         <p class="about_paragraph about_paragraph--info">
-          Use arrow keyboard for faster picking the color. (<code>a</code> for first color, <code>b</code> for second).
+          Use arrow keyboard for faster picking the color. Click <code>↑</code> to select top color, <code>↓</code> to bottom).
         </p>
       </div>
       <router-link to="/game" class="about_button">Start game</router-link>
@@ -114,6 +114,15 @@ export default {
           color: #fff;
           font-weight: 500;
           position: relative;
+        }
+        &--info {
+          code {
+            margin: 0 5px;
+            padding: 2px 7px;
+            border-radius: 4px;
+            color: #8e8e8e;
+            border: 1px solid #464646;
+          }
         }
     }
     &_button {
