@@ -67,11 +67,11 @@ export default {
       justify-content: center;
 
         &:first-child {
-          background: #4287f5;
+          background: linear-gradient(#4287f5, rgba(#4287f5, 0.75));
           margin-right: 20px;
         }
         &:nth-child(2) {
-          background: #6c12cc;
+          background: linear-gradient(#6c12cc, rgba(#6c12cc, 0.75));
         }
     }
     &_image {
