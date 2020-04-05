@@ -113,6 +113,10 @@ export default {
       this.generateColors();
     },
     checkAnswer(color) {
+      // If game summary is currently displaying
+      if (this.game.showSummary) return false;
+
+      // ^ If not
       // Check is answer correct
       if (color === this.colors[this.game.goodColor].hex) {
         this.levelUp();
@@ -122,6 +126,7 @@ export default {
       } else {
         this.endGame();
       }
+      return true;
     },
     levelUp() {
       // Add 1 point (level)
