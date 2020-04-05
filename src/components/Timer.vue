@@ -6,6 +6,7 @@
       </div>
     </div>
     <div class="timer_row timer_text"><span class="timer_text--highlight">{{ time }}</span> s</div>
+    <div class="timer_hint">Remaining time</div>
   </div>
 </template>
 
@@ -20,18 +21,10 @@ export default {
 
 <style lang="scss" scoped>
 .timer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   color: #fff;
   font-weight: 400;
   font-size: 18px;
 
-    &_row {
-      &:first-child {
-        width: 80%;
-      }
-    }
     &_bar {
       background: rgba(#ffffff, 0.2);
       border-radius: 50px;
@@ -49,13 +42,56 @@ export default {
           transition: 0.1s all;
         }
     }
+    &_hint {
+      display: none;
+    }
+}
+// Desktop UI
+@media (min-width: 769px) {
+  .timer {
+    padding: 0 0 20px;
+    border-bottom: 1px solid rgba(#ffffff, 0.1);
+    text-align: left;
+
     &_text {
-      text-transform: none;
+      font-weight: 300;
+      margin-top: 15px;
+      font-size: 1.5em;
+
+        &--highlight {
+          font-size: 2em;
+          margin-top: 20px;
+          font-weight: 400;
+        }
+    }
+    &_hint {
+      display: block;
+      margin-top: 5px;
+      color: rgba(#ffffff, 0.4);
+    }
+  }
+}
+// Mobile UI
+@media (max-width: 768px) {
+  .timer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+
+      &_row {
+        &:first-child {
+          width: 80%;
+        }
+      }
+      &_text {
+        font-weight: 200;
 
         &--highlight {
           font-weight: 500;
         }
-    }
+      }
+  }
 }
 // iPhone 5/SE
 @media (max-width: 320px) {

@@ -1,32 +1,34 @@
 <template>
   <div class="home_container">
     <div class="home">
-      <div class="home_subtitle">Where is...</div>
+      <div class="home_subtitle">Where is... <button @click="testgame">TEST</button></div>
       <div class="home_title" :style="{ color: game.randomColor }">
         {{ colors[game.goodColor].name }}
       </div>
-      <div class="home_colors">
-        <Color
-          :hex="colors[game.firstColor].hex"
-          @clicked="checkAnswer"
-          :left="true"
-        />
-        <Color
-          :hex="colors[game.secondColor].hex"
-          @clicked="checkAnswer"
-          :left="false"
-        />
-      </div>
-      <div class="top" v-if="game.started">
-        <Timer class="top_timer" :time="game.time" />
-        <Level class="top_level" :level="game.stats.points" />
+      <div class="home_container--mobile">
+        <div class="home_colors">
+          <Color
+            :hex="colors[game.firstColor].hex"
+            @clicked="checkAnswer"
+            :left="true"
+          />
+          <Color
+            :hex="colors[game.secondColor].hex"
+            @clicked="checkAnswer"
+            :left="false"
+          />
+        </div>
+        <div class="stats" v-if="game.started">
+          <Timer class="stats_timer" :time="game.time" />
+          <Level class="stats_level" :level="game.stats.points" />
+        </div>
       </div>
     </div>
-    <audio id="level-up" crossorigin="anonymous" src="../assets/sounds/level-up.ogg"></audio>
-    <audio id="fail" crossorigin="anonymous" src="../assets/sounds/fail.ogg"></audio>
     <transition name="bounce">
       <Summary v-if="game.showSummary" @close="game.showSummary = !game.showSummary" />
     </transition>
+    <audio id="level-up" crossorigin="anonymous" src="../assets/sounds/level-up.ogg"></audio>
+    <audio id="fail" crossorigin="anonymous" src="../assets/sounds/fail.ogg"></audio>
   </div>
 </template>
 
@@ -103,6 +105,11 @@ export default {
     };
   },
   methods: {
+    testgame() {
+      this.game.started = true;
+      this.game.time = 1.7;
+      this.gmae.stats.points = 35;
+    },
     initGame() {
       this.generateColors();
     },
@@ -220,22 +227,57 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 30px;
-  width: 100vw;
+// Desktop UI
+@media (min-width: 769px) {
+  .stats {
+    width: 30vw;
+    height: 100%;
+    margin-left: 30px;
+  }
+  .home {
+    &_container {
+      &--mobile {
+        display: flex;
+        align-items: flex-start;
+      }
+    }
+  }
+}
+// Mobile UI
+@media (max-width: 768px) {
+  .stats {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 30px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    &_timer {
-      width: 80%;
-    }
-    &_level {
-      width: 15%;
-    }
+      &_timer {
+        width: 80%;
+      }
+      &_level {
+        width: 15%;
+      }
+  }
+  .home {
+    padding: 60px 0 30px 0;
+
+      &_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      &_title {
+        font-size: 2.2em;
+        font-weight: 300;
+      }
+      &_colors {
+        text-align: center;
+      }
+  }
 }
 .home {
     color: #fff;
@@ -251,26 +293,7 @@ export default {
         margin-bottom: 50px;
       }
 }
-@media (max-width: 768px) {
-  .home {
-    padding: 60px 0 30px 0;
-
-      &_container {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      &_title {
-        font-size: 2.2em;
-        font-weight: 300;
-      }
-      &_colors {
-        text-align: center;
-      }
-  }
-}
+// Animations
 .bounce-enter-active {
   animation: bounce-in .5s;
 }

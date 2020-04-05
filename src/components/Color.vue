@@ -49,14 +49,17 @@ export default {
 
 <style scoped lang="scss">
 .color {
-  width: 300px;
-  height: 300px;
+  width: 210px;
+  height: 250px;
   border: 0;
   outline: 0;
   cursor: pointer;
-  margin-right: 20px;
-  border-radius: 50%;
+  border-radius: 10px;
+  display: block;
 
+    &:first-child {
+      margin: 0 auto 30px auto;
+    }
     &_text {
       visibility: hidden;
     }
@@ -68,7 +71,6 @@ export default {
   .color {
     width: 80%;
     height: 200px;
-    border-radius: 10px;
     margin: 0 auto;
 
       &:first-child {
