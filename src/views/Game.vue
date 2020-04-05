@@ -289,9 +289,11 @@ export default {
   }
 }
 @keyframes bounce-out {
+  50% {
+    transform: scale(1.3);
+  }
   100% {
     opacity: 0;
-    transform: rotate(360deg);
   }
 }
 </style>
