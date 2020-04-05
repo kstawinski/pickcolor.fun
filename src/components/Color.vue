@@ -9,7 +9,7 @@ export default {
   name: 'Color',
   props: {
     hex: String,
-    left: Boolean,
+    top: Boolean,
   },
   methods: {
     emitClick() {
@@ -34,12 +34,12 @@ export default {
   },
   mounted() {
     window.addEventListener('keyup', (event) => {
-      // Left arrow click
-      if (event.keyCode === 37 && this.left) {
+      // Top arrow click
+      if (event.keyCode === 38 && this.top) {
         this.emitClick();
       }
-      // Right arrow cick
-      if (event.keyCode === 39 && this.left !== true) {
+      // Down arrow cick
+      if (event.keyCode === 40 && this.top !== true) {
         this.emitClick();
       }
     });

@@ -10,12 +10,11 @@
           <Color
             :hex="colors[game.firstColor].hex"
             @clicked="checkAnswer"
-            :left="true"
+            :top="true"
           />
           <Color
             :hex="colors[game.secondColor].hex"
             @clicked="checkAnswer"
-            :left="false"
           />
         </div>
         <div class="stats" v-if="game.started">
