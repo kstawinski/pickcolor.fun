@@ -1,5 +1,5 @@
 <template>
-  <button class="color" :style="{ background: hex }" @click="emitClick">
+  <button class="color" :style="{ background: generateGradient(hex) }" @click="emitClick">
     <span class="color_text">Pick this color</span>
   </button>
 </template>
@@ -14,6 +14,22 @@ export default {
   methods: {
     emitClick() {
       this.$emit('clicked', this.hex);
+    },
+    // Generate linear gradient for button background
+    generateGradient(hex) {
+      const lighten = this.hexToRGB(hex, 0.4);
+      return `linear-gradient(to top, ${lighten}, ${hex})`;
+    },
+    // Modified code from Stackoverflow
+    hexToRGB(hex, alpha) {
+      const r = parseInt(hex.slice(1, 3), 16);
+      const g = parseInt(hex.slice(3, 5), 16);
+      const b = parseInt(hex.slice(5, 7), 16);
+
+      if (alpha) {
+        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+      }
+      return `rgba(${r}, ${g}, ${b})`;
     },
   },
   mounted() {
