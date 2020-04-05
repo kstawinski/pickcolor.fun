@@ -196,4 +196,15 @@ export default {
       }
   }
 }
+
+// Laptop
+@media (max-width: 900px) {
+  .about {
+    &_paragraph {
+      &--info {
+        display: none;
+      }
+    }
+  }
+}
 </style>
