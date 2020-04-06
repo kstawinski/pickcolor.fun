@@ -5,7 +5,10 @@
         <div class="timer_bar--line" :style="{'width': `${time * 50}%`}"></div>
       </div>
     </div>
-    <div class="timer_row timer_text"><span class="timer_text--highlight">{{ time }}</span> s</div>
+    <div class="timer_row timer_text">
+      <span class="timer_text--highlight">{{ time.toFixed(1) }}</span>
+      s
+    </div>
     <div class="timer_hint">Remaining time</div>
   </div>
 </template>
