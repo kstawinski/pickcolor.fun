@@ -19,6 +19,15 @@ export default {
       this.$emit('close');
     },
   },
+  mounted() {
+    window.addEventListener('keyup', (event) => {
+      // On enter click
+      if (event.key === 'Enter') {
+        // Emit button click
+        this.redirectToGame();
+      }
+    });
+  },
 };
 </script>
 
