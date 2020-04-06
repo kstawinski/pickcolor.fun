@@ -98,7 +98,7 @@ export default {
         },
         {
           name: 'Brown',
-          hex: '#502800',
+          hex: '#964B00',
         },
       ],
     };
