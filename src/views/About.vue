@@ -34,6 +34,15 @@ import ArrowNav from '@/components/ArrowNav.vue';
 export default {
   name: 'About',
   components: { ArrowNav },
+  mounted() {
+    window.addEventListener('keyup', (event) => {
+      // On enter click
+      if (event.key === 'Enter') {
+        // Redirect to game
+        this.$router.push('game');
+      }
+    });
+  },
 };
 </script>
 

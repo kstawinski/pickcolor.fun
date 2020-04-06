@@ -12,15 +12,6 @@
 <script>
 export default {
   name: 'ArrowNav',
-  mounted() {
-    window.addEventListener('keyup', (event) => {
-      // On enter click
-      if (event.key === 'Enter') {
-        // Redirect to game
-        this.$router.push('game');
-      }
-    });
-  },
 };
 </script>
 
