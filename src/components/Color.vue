@@ -69,7 +69,7 @@ export default {
 }
 @media (max-width: 768px) {
   .color {
-    width: 80%;
+    width: 40%;
     height: 200px;
     margin: 0 auto;
 

@@ -280,6 +280,7 @@ export default {
       }
       &_colors {
         text-align: center;
+        width: 100vw;
       }
   }
 }
