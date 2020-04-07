@@ -9,7 +9,7 @@ export default {
   name: 'Color',
   props: {
     hex: String,
-    left: Boolean,
+    top: Boolean,
   },
   methods: {
     emitClick() {
@@ -34,12 +34,12 @@ export default {
   },
   mounted() {
     window.addEventListener('keyup', (event) => {
-      // Left arrow click
-      if (event.keyCode === 37 && this.left) {
+      // Top arrow click
+      if (event.keyCode === 38 && this.top) {
         this.emitClick();
       }
-      // Right arrow cick
-      if (event.keyCode === 39 && this.left !== true) {
+      // Down arrow cick
+      if (event.keyCode === 40 && this.top !== true) {
         this.emitClick();
       }
     });
@@ -49,14 +49,17 @@ export default {
 
 <style scoped lang="scss">
 .color {
-  width: 300px;
-  height: 300px;
+  width: 210px;
+  height: 250px;
   border: 0;
   outline: 0;
   cursor: pointer;
-  margin-right: 20px;
-  border-radius: 50%;
+  border-radius: 10px;
+  display: block;
 
+    &:first-child {
+      margin: 0 auto 30px auto;
+    }
     &_text {
       visibility: hidden;
     }
@@ -66,9 +69,8 @@ export default {
 }
 @media (max-width: 768px) {
   .color {
-    width: 80%;
+    width: 40%;
     height: 200px;
-    border-radius: 10px;
     margin: 0 auto;
 
       &:first-child {

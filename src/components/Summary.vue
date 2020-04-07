@@ -2,8 +2,11 @@
   <div class="summary">
     <div class="summary_container">
       <div class="summary_result">👌 <span class="summary_score">{{ getLastScore() }}</span></div>
-      <p class="summary_text">Maybe you'll try one more time?</p>
-      <button class="summary_button" @click="redirectToGame">Try again</button>
+      <p class="summary_text">
+        Maybe you'll try one more time?
+        <span class="summary_hint">Press <code>enter</code> to start game faster.</span>
+      </p>
+      <button class="button button_animated" @click="redirectToGame">Try again</button>
     </div>
   </div>
 </template>
@@ -18,6 +21,15 @@ export default {
     redirectToGame() {
       this.$emit('close');
     },
+  },
+  mounted() {
+    window.addEventListener('keyup', (event) => {
+      // On enter click
+      if (event.key === 'Enter') {
+        // Emit button click
+        this.redirectToGame();
+      }
+    });
   },
 };
 </script>
@@ -36,6 +48,9 @@ export default {
   top: 0;
   left: 0;
 
+    &_hint {
+      display: none;
+    }
     &_container {
       text-align: center;
       padding: 0 20px;
@@ -48,25 +63,24 @@ export default {
     &_text {
       color: #a9a9a9;
       margin: 20px 0 30px 0;
+      padding: 0 15px;
+      line-height: 1.3;
     }
-    &_button {
-      background: linear-gradient(#f27121, #e94057);
-      box-shadow: 0 0 20px rgba(237, 78, 60, 0.4);
-      padding: 20px 40px;
-      border: 0;
-      border-radius: 50px;
-      font-family: inherit;
-      font-size: inherit;
-      text-transform: uppercase;
-      font-weight: 500;
-      outline: 0;
-      cursor: pointer;
-      transition: 0.3s all;
+}
+// Desktop UI
+@media (min-width: 769px) {
+  .summary {
+    &_hint {
+      display: block;
 
-        &:hover {
-          opacity: .8;
-          box-shadow: 0 0 10px rgba(237, 78, 60, 0.6);
+        code {
+          padding: 2px 7px;
+          border-radius: 4px;
+          color: rgba(#c5c5c5, 0.6);
+          border: 1px solid rgba(#ffffff, 0.15);
+          font-size: 16px;
         }
     }
+  }
 }
 </style>
