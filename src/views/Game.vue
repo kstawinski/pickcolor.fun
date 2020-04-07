@@ -1,7 +1,7 @@
 <template>
   <div class="home_container">
     <div class="home">
-      <div class="home_subtitle">Where is... <button @click="testgame">TEST</button></div>
+      <div class="home_subtitle">Where is...</div>
       <div class="home_title" :style="{ color: game.randomColor }">
         {{ colors[game.goodColor].name }}
       </div>
@@ -104,11 +104,6 @@ export default {
     };
   },
   methods: {
-    testgame() {
-      this.game.started = true;
-      this.game.time = 1.7;
-      this.gmae.stats.points = 35;
-    },
     initGame() {
       this.generateColors();
     },
