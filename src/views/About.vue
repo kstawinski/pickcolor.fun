@@ -23,7 +23,7 @@
         </div>
         <ArrowNav class="about_paragraph" />
       </div>
-      <router-link to="/game" class="button button_full">Start game</router-link>
+      <router-link to="/game" class="button button_full button_animated">Start game</router-link>
     </div>
   </div>
 </template>

@@ -3,7 +3,7 @@
     <div class="summary_container">
       <div class="summary_result">👌 <span class="summary_score">{{ getLastScore() }}</span></div>
       <p class="summary_text">Maybe you'll try one more time?</p>
-      <button class="button" @click="redirectToGame">Try again</button>
+      <button class="button button_animated" @click="redirectToGame">Try again</button>
     </div>
   </div>
 </template>

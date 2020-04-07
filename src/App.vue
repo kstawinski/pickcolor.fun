@@ -49,5 +49,25 @@ body {
       display: block;
       text-align: center;
     }
+    &_animated {
+      animation-name: pulse;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+
+        &:hover {
+          animation-play-state: paused;
+        }
+    }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 </style>
