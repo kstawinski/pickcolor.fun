@@ -23,7 +23,7 @@
         </div>
         <ArrowNav class="about_paragraph" />
       </div>
-      <router-link to="/game" class="about_button">Start game</router-link>
+      <router-link to="/game" class="button button_full">Start game</router-link>
     </div>
   </div>
 </template>
@@ -124,23 +124,6 @@ export default {
           color: #fff;
           font-weight: 500;
           position: relative;
-        }
-    }
-    &_button {
-      display: block;
-      padding: 20px 0;
-      text-align: center;
-      border-radius: 50px;
-      background: linear-gradient(#f27121, #e94057);
-      color: #fff;
-      font-weight: 500;
-      text-decoration: none;
-      transition: 0.3s all;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-
-        &:hover {
-          opacity: 0.8;
         }
     }
 }

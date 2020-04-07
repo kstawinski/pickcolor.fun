@@ -25,4 +25,29 @@ body {
     justify-content: center;
   }
 }
+.button {
+  background: linear-gradient(#f27121, #e94057);
+  color: #17171f;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(237, 78, 60, 0.4);
+  padding: 20px 40px;
+  border: 0;
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: inherit;
+  text-transform: uppercase;
+  font-weight: 500;
+  outline: 0;
+  cursor: pointer;
+  transition: 0.3s all;
+
+    &:hover {
+      opacity: .8;
+      box-shadow: 0 0 10px rgba(237, 78, 60, 0.6);
+    }
+    &_full {
+      display: block;
+      text-align: center;
+    }
+}
 </style>
