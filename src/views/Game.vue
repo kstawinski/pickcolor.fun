@@ -267,7 +267,7 @@ export default {
       }
   }
   .home {
-    padding: 60px 0 30px 0;
+    padding: 80px 0 30px 0;
 
       &_container {
         display: flex;

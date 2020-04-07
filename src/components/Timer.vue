@@ -89,6 +89,7 @@ export default {
       }
       &_text {
         font-weight: 200;
+        text-transform: none;
 
         &--highlight {
           font-weight: 500;

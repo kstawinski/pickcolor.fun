@@ -57,6 +57,8 @@ export default {
     &_text {
       color: #a9a9a9;
       margin: 20px 0 30px 0;
+      padding: 0 15px;
+      line-height: 1.3;
     }
 }
 </style>
