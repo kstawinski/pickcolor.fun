@@ -21,8 +21,9 @@ export default {
     margin: 0 5px;
     padding: 2px 7px;
     border-radius: 4px;
-    color: #c5c5c5;
-    border: 1px solid rgba(#ffffff, 0.4);
+    color: rgba(#ffffff, 0.6);
+    border: 1px solid rgba(#ffffff, 0.2);
+    font-size: 16px;
   }
 }
 // Dont show this component on devices with width < 900px
