@@ -5,10 +5,7 @@
       <h1 class="about_title">Introduction</h1>
       <div class="about_content">
         <p class="about_paragraph">
-          This game looks very simple, but...
-        </p>
-        <p class="about_paragraph">
-          Your task is to <span class="about_paragraph--highlight">select the color whose name is displayed on your screen</span>. Be careful, it's the name of the color, not the color of the text. For example:
+          <span class="about_paragraph--highlight">Select the color whose name is displayed on your screen</span>. Be careful, I mean the name of color, not color of the text. For example:
         </p>
         <div class="about_paragraph example">
           <div class="example_task">Purple</div>
