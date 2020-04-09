@@ -2,7 +2,7 @@
   <!-- eslint-disable max-len -->
   <div class="container">
     <div class="about">
-      <h1 class="about_title">Introduction</h1>
+      <h1 class="about_title">How to play?</h1>
       <div class="about_content">
         <p class="about_paragraph">
           <span class="about_paragraph--highlight">Select the color whose name is displayed on your screen</span>. Be careful, I mean the name of color, not color of the text. For example:
@@ -90,22 +90,17 @@ export default {
   font-size: 20px;
 
     &_title {
-      margin: 0 0 18px 0;
+      margin: 0 0 25px 0;
       font-size: 2.2em;
       position: relative;
-      display: inline-block;
-
-        &:before {
-          content: '';
-          width: 100%;
-          height: 10px;
-          position: absolute;
-          background: linear-gradient(#f27121, #e94057);
-          left: 0;
-          bottom: -3px;
-          opacity: .8;
-          z-index: -1;
-        }
+      display: block;
+      text-align: center;
+      background: linear-gradient(#f27121, #e94057);
+      color: transparent;
+      -webkit-background-clip: text;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 1.5px;
     }
     &_content {
       line-height: 1.4;
