@@ -46,7 +46,7 @@ export default {
 <style lang="scss" scoped>
 .example {
   text-align: center;
-  padding: 50px 0;
+  padding: 30px 0;
   text-transform: uppercase;
 
     &_row {
