@@ -1,5 +1,9 @@
 <template>
-  <button class="color" :style="{ background: generateGradient(hex) }" @click="emitClick">
+  <button
+    class="color"
+    :style="{ background: generateGradient(hex) }"
+    @click="emitClick($event.target)">
+
     <span class="color_text">Pick this color</span>
   </button>
 </template>
@@ -12,8 +16,9 @@ export default {
     top: Boolean,
   },
   methods: {
-    emitClick() {
+    emitClick(event) {
       this.$emit('clicked', this.hex);
+      this.turnAnimation(event);
     },
     // Generate linear gradient for button background
     generateGradient(hex) {
@@ -30,6 +35,12 @@ export default {
         return `rgba(${r}, ${g}, ${b}, ${alpha})`;
       }
       return `rgba(${r}, ${g}, ${b})`;
+    },
+    turnAnimation(target) {
+      target.classList.add('color_animation');
+      setTimeout(() => {
+        target.classList.remove('color_animation');
+      }, 200);
     },
   },
   mounted() {
@@ -66,6 +77,9 @@ export default {
     &:hover {
       opacity: .85;
     }
+    &_animation {
+      animation: click .2s;
+    }
 }
 @media (max-width: 768px) {
   .color {
@@ -83,6 +97,18 @@ export default {
 @media (max-width: 320px) {
   .color {
     height: 160px;
+  }
+}
+
+@keyframes click {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.2);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 </style>
