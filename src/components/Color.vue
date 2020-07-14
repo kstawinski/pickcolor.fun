@@ -47,11 +47,11 @@ export default {
     window.addEventListener('keyup', (event) => {
       // Top arrow click
       if (event.keyCode === 38 && this.top) {
-        this.emitClick();
+        this.emitClick(document.querySelectorAll('.color')[0]);
       }
       // Down arrow cick
       if (event.keyCode === 40 && this.top !== true) {
-        this.emitClick();
+        this.emitClick(document.querySelectorAll('.color')[1]);
       }
     });
   },
