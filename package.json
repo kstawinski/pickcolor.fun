@@ -2,6 +2,10 @@
   "name": "pick-good-color",
   "version": "1.1.1",
   "author": "Kacper Stawinski <stawinskidev@gmail.com> (@kstawinski)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kstawinski/pick-good-color.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
