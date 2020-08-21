@@ -32,5 +32,9 @@
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kstawinski/pick-good-color/issues"
+  },
+  "homepage": "https://github.com/kstawinski/pick-good-color"
 }
