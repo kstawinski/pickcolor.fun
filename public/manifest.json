@@ -1,0 +1,16 @@
+{
+  "short_name": "Pick Good Color",
+  "name": "Pick Good Color",
+  "description": "Game with only one rule. Just pick good color!",
+  "icons": [
+    {
+      "src": "/img/icons/favicon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#17171f",
+  "display": "fullscreen",
+  "theme_color": "#17171f"
+}
