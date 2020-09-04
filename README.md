@@ -1,7 +1,7 @@
 # Pick Good Color
-Progressive Web App game with one simple rule: you must select the color whose name is displayed on your screen.
+> Game with one simple rule: you must select the color whose name is displayed on your screen. Made out of boredom in Vue.js.
 
-**[🎮 Play game](https://pickcolor.fun/)**
+**[🚀 Check out demo!](https://pickcolor.fun/)**
 
 ## Game informations
 ### Levels
