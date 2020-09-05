@@ -34,7 +34,7 @@
 import ArrowNav from '@/components/ArrowNav.vue';
 
 export default {
-  name: 'About',
+  name: 'Home',
   components: { ArrowNav },
   mounted() {
     window.addEventListener('keyup', (event) => {
