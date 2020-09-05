@@ -1,18 +1,18 @@
 <template>
   <!-- eslint-disable max-len -->
   <div class="container center">
-    <div class="about">
+    <div class="home">
       <router-link
-        class="button button_text button_sm about_button"
+        class="button button_text button_sm home_button"
         to="/about"
       >About game
       </router-link>
-      <h1 class="about_title">How to play?</h1>
-      <div class="about_content">
-        <p class="about_paragraph">
-          <span class="about_paragraph--highlight">Select the color whose name is displayed on your screen</span>. Be careful, I mean the name of color, not color of the text. For example:
+      <h1 class="home_title">How to play?</h1>
+      <div class="home_content">
+        <p class="home_paragraph">
+          <span class="home_paragraph--highlight">Select the color whose name is displayed on your screen</span>. Be careful, I mean the name of color, not color of the text. For example:
         </p>
-        <div class="about_paragraph example">
+        <div class="home_paragraph example">
           <div class="example_task">Purple</div>
           <div class="example_row">
             <div class="example_circle">
@@ -23,7 +23,7 @@
             </div>
           </div>
         </div>
-        <ArrowNav class="about_paragraph" />
+        <ArrowNav class="home_paragraph" />
       </div>
       <router-link to="/game" class="button button_full button_animated">Start game</router-link>
     </div>
@@ -90,7 +90,7 @@ export default {
       width: 30%;
     }
 }
-.about {
+.home {
   color: #fff;
   font-size: 20px;
 
@@ -140,7 +140,7 @@ export default {
     width: unset;
     margin: unset;
   }
-  .about {
+  .home {
     margin: 50px 0;
     font-size: 1em;
 
@@ -164,7 +164,7 @@ export default {
 }
 // iPhone 5/SE
 @media (max-width: 320px) {
-  .about {
+  .home {
     margin: 20px 0;
 
       &_content {
