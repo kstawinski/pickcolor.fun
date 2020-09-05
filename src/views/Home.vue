@@ -2,6 +2,11 @@
   <!-- eslint-disable max-len -->
   <div class="container center">
     <div class="about">
+      <router-link
+        class="button button_text button_sm about_button"
+        to="/about"
+      >About game
+      </router-link>
       <h1 class="about_title">How to play?</h1>
       <div class="about_content">
         <p class="about_paragraph">
@@ -117,6 +122,12 @@ export default {
           font-weight: 500;
           position: relative;
         }
+    }
+    &_button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 15px 15px 0 0;
     }
 }
 .container {
