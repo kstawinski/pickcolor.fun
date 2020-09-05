@@ -3,6 +3,8 @@
 
 **[🚀 Check out demo!](https://pickcolor.fun/)**
 
+![](https://i.imgur.com/FBZIFta.jpg)
+
 ## Game informations
 ### Levels
 | Emoji 	| Minimal points 	|
