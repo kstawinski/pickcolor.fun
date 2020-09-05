@@ -10,7 +10,9 @@
         </div>
       </div>
 
-      <router-link to="/game" class="button button_full button_animated">Start game</router-link>
+      <div class="about_button">
+        <router-link to="/game" class="button button_full button_animated">Start game</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -83,7 +85,7 @@ export default {
     }
     &_content {
       line-height: 1.5;
-      margin-bottom: 50px;
+      margin-bottom: 120px;
     }
     &_p {
       color: #a9a9a9;
@@ -97,6 +99,14 @@ export default {
           font-size: 1.2em;
           margin-bottom: 8px;
         }
+    }
+    &_button {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      padding: 20px 40px;
+      width: 100vw;
+      background: linear-gradient(transparent, #17171f);
     }
 }
 .container {
