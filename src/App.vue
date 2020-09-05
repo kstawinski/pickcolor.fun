@@ -70,4 +70,10 @@ body {
     transform: scale(1);
   }
 }
+.center {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>

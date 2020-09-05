@@ -248,7 +248,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 30px;
+    padding: 40px 30px 30px 30px;
     width: 100vw;
     display: flex;
     justify-content: space-between;
@@ -262,7 +262,7 @@ export default {
       }
   }
   .home {
-    padding: 80px 0 30px 0;
+    padding: 100px 0 30px 0;
 
       &_container {
         display: flex;

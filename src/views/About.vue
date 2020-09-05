@@ -1,6 +1,6 @@
 <template>
   <!-- eslint-disable max-len -->
-  <div class="container">
+  <div class="container center">
     <div class="about">
       <h1 class="about_title">How to play?</h1>
       <div class="about_content">
