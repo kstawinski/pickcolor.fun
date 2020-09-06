@@ -58,6 +58,19 @@ body {
           animation-play-state: paused;
         }
     }
+    &_text {
+      background: rgba(#fff, 0.1);
+      box-shadow: none;
+      color: rgba(#fff, 0.75);
+
+      &:hover {
+        opacity: 0.9;
+        box-shadow: none;
+      }
+    }
+    &_sm {
+      padding: 12px 25px;
+    }
 }
 @keyframes pulse {
   0% {

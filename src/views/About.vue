@@ -1,36 +1,65 @@
 <template>
-  <!-- eslint-disable max-len -->
-  <div class="container center">
+  <div class="container">
     <div class="about">
-      <h1 class="about_title">How to play?</h1>
+      <h1 class="about_title">About</h1>
+      <button class="about_close" @click="backToHomepage">←</button>
+
       <div class="about_content">
-        <p class="about_paragraph">
-          <span class="about_paragraph--highlight">Select the color whose name is displayed on your screen</span>. Be careful, I mean the name of color, not color of the text. For example:
-        </p>
-        <div class="about_paragraph example">
-          <div class="example_task">Purple</div>
-          <div class="example_row">
-            <div class="example_circle">
-              <img class="example_image" src="../assets/icons/close.svg" alt="Incorrect symbol">
-            </div>
-            <div class="example_circle">
-              <img class="example_image" src="../assets/icons/checked.svg" alt="Correct symbol">
-            </div>
-          </div>
+        <div v-for="(article, index) in articles" :key="index">
+          <p class="about_p about_p--title">{{ article.title }}</p>
+          <p class="about_p" v-html="article.content"></p>
         </div>
-        <ArrowNav class="about_paragraph" />
       </div>
-      <router-link to="/game" class="button button_full button_animated">Start game</router-link>
+
+      <div class="about_button">
+        <router-link to="/game" class="button button_full button_animated">Start game</router-link>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import ArrowNav from '@/components/ArrowNav.vue';
-
 export default {
   name: 'About',
-  components: { ArrowNav },
+
+  data: () => ({
+    articles: [
+      {
+        title: 'Game rules 🗒️',
+        content: `
+          You have only one task: must select color whose NAME is displayed
+          on your screen. I have one surprise. Sometimes color name will has
+          got a color that you can't pick, because you lose.<br /> <br />
+
+          Your time is limited. If your level value is smaller than 20, you have 2 seconds per round. If greather than 20 but smaller than 40 - 1.7 second and so on.
+        `,
+      },
+      {
+        title: 'About author 👋',
+        content: `
+          I'm 18 years old developer from Poland. I created this game,
+          because somewhere I saw something similar. First line of code was
+          written 2 April 2020.
+          This game isn't special, I know, but I created it to learn
+          more about game programming.
+        `,
+      },
+      {
+        title: 'For devs 💻',
+        content: `
+          Code is open-source. If you want to contribute, go to my repository
+          on GitHub (<a href="https://github.com/kstawinski/pickcolor.fun" target="_blank" rel="noopener" style="font-weight: 500;color: #fff;">@kstawinski/pickcolor.fun</a>).
+        `,
+      },
+      {
+        title: 'Cookies 🍪',
+        content: `
+          We use cookies to ensure you get the best experience on our website (<a href="https://www.cookiesandyou.com/" target="_blank" rel="noopener" style="font-weight: 500;color: #fff;">learn more</a>).
+        `,
+      },
+    ],
+  }),
+
   mounted() {
     window.addEventListener('keyup', (event) => {
       // On enter click
@@ -40,57 +69,22 @@ export default {
       }
     });
   },
+
+  methods: {
+    backToHomepage() {
+      this.$router.push('/');
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.example {
-  text-align: center;
-  padding: 30px 0;
-  text-transform: uppercase;
-
-    &_row {
-      display: flex;
-      justify-content: center;
-    }
-    &_task {
-      font-size: 38px;
-      margin: 0 0 20px 0;
-      color: #4287f5;
-      font-weight: 400;
-    }
-    &_circle {
-      width: 200px;
-      height: 200px;
-      // line-height: 200px;
-      text-align: center;
-      border-radius: 50%;
-      color: #fff;
-      // transform: rotate(-4deg);
-      font-weight: 500;
-      letter-spacing: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-        &:first-child {
-          background: linear-gradient(#4287f5, rgba(#4287f5, 0.75));
-          margin-right: 20px;
-        }
-        &:nth-child(2) {
-          background: linear-gradient(#6c12cc, rgba(#6c12cc, 0.75));
-        }
-    }
-    &_image {
-      width: 30%;
-    }
-}
 .about {
   color: #fff;
   font-size: 20px;
 
     &_title {
-      margin: 0 0 25px 0;
+      margin: 0 0 40px 0;
       font-size: 2.2em;
       position: relative;
       display: block;
@@ -102,21 +96,49 @@ export default {
       font-weight: 500;
       letter-spacing: 1.5px;
     }
-    &_content {
-      line-height: 1.4;
-      margin-bottom: 50px;
+    &_close {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-left: 15px;
+      padding: 10px;
+      font-size: 1.5em;
+      background: transparent;
+      color: #fff;
+      opacity: 0.4;
+      border: 0;
+      transition: 0.3s all;
+      outline: 0;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.6;
+      }
     }
-    &_paragraph {
+    &_content {
+      line-height: 1.5;
+      margin-bottom: 120px;
+    }
+    &_p {
       color: #a9a9a9;
 
-        &:not(:last-child) {
-          margin-bottom: 10px;
+        &:nth-child(even) {
+          margin-bottom: 25px;
         }
-        &--highlight {
+        &--title {
           color: #fff;
           font-weight: 500;
-          position: relative;
+          font-size: 1.2em;
+          margin-bottom: 8px;
         }
+    }
+    &_button {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      padding: 20px 40px;
+      width: 100vw;
+      background: linear-gradient(transparent, #17171f);
     }
 }
 .container {
@@ -161,14 +183,6 @@ export default {
       }
       &_title {
         margin: 0 0 25px 0;
-      }
-  }
-  .example {
-    padding: 10px 0;
-
-      &_circle {
-        width: 100px;
-        height: 100px;
       }
   }
 }
