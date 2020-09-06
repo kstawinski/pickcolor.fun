@@ -109,6 +109,7 @@ export default {
       border: 0;
       transition: 0.3s all;
       outline: 0;
+      cursor: pointer;
 
       &:hover {
         opacity: 0.6;
