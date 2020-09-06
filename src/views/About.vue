@@ -2,6 +2,7 @@
   <div class="container">
     <div class="about">
       <h1 class="about_title">About</h1>
+      <button class="about_close" @click="backToHomepage">←</button>
 
       <div class="about_content">
         <div v-for="(article, index) in articles" :key="index">
@@ -68,6 +69,12 @@ export default {
       }
     });
   },
+
+  methods: {
+    backToHomepage() {
+      this.$router.push('/');
+    },
+  },
 };
 </script>
 
@@ -88,6 +95,24 @@ export default {
       text-transform: uppercase;
       font-weight: 500;
       letter-spacing: 1.5px;
+    }
+    &_close {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-left: 15px;
+      padding: 10px;
+      font-size: 1.5em;
+      background: transparent;
+      color: #fff;
+      opacity: 0.4;
+      border: 0;
+      transition: 0.3s all;
+      outline: 0;
+
+      &:hover {
+        opacity: 0.6;
+      }
     }
     &_content {
       line-height: 1.5;
