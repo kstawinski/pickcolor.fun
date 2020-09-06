@@ -50,6 +50,12 @@ export default {
           on GitHub (<a href="https://github.com/kstawinski/pickcolor.fun" target="_blank" rel="noopener" style="font-weight: 500;color: #fff;">@kstawinski/pickcolor.fun</a>).
         `,
       },
+      {
+        title: 'Cookies 🍪',
+        content: `
+          We use cookies to ensure you get the best experience on our website (<a href="https://www.cookiesandyou.com/" target="_blank" rel="noopener" style="font-weight: 500;color: #fff;">learn more</a>).
+        `,
+      },
     ],
   }),
 
