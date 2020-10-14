@@ -37,8 +37,8 @@
 Open your terminal and run below commands. Then you can go to [localhost:8080](http://localhost:8080) and start development.
 
 ```
-git clone https://github.com/kstawinski/pick-good-color.git
-cd pick-good-color
+git clone https://github.com/kstawinski/pickcolor.fun.git
+cd pickcolor.fun
 npm install
 npm run dev
 ```
@@ -48,6 +48,6 @@ MIT &copy; Kacper Stawiński
 
 ![License][license-img] ![Last version of my project][version-img] ![Opened issues][issues-img]
 
-[license-img]: https://img.shields.io/github/license/kstawinski/pick-good-color
-[version-img]: https://img.shields.io/github/release/kstawinski/pick-good-color
-[issues-img]: https://img.shields.io/github/issues/kstawinski/pick-good-color
+[license-img]: https://img.shields.io/github/license/kstawinski/pickcolor.fun
+[version-img]: https://img.shields.io/github/release/kstawinski/pickcolor.fun
+[issues-img]: https://img.shields.io/github/issues/kstawinski/pickcolor.fun
