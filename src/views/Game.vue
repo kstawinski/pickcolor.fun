@@ -36,6 +36,7 @@ import Color from '@/components/Color.vue';
 import Timer from '@/components/Timer.vue';
 import Level from '@/components/Level.vue';
 import Summary from '@/components/Summary.vue';
+import randomInt from '@/plugins/randomInt';
 
 export default {
   name: 'Game',
@@ -165,8 +166,8 @@ export default {
     generateColors() {
       // Get colors
       const colorsLength = this.colors.length - 1;
-      this.game.firstColor = this.randomInt(0, colorsLength);
-      this.game.secondColor = this.randomInt(0, colorsLength);
+      this.game.firstColor = randomInt(0, colorsLength);
+      this.game.secondColor = randomInt(0, colorsLength);
       // Check that generated colors are duplicated
       this.checkAnyDuplicates();
       // Pick correct and random color from selected
@@ -186,14 +187,8 @@ export default {
       // Make array with colors
       const colors = [this.game.firstColor, this.game.secondColor];
       // Get and return randomized index
-      const index = this.randomInt(0, 1);
+      const index = randomInt(0, 1);
       return colors[index];
-    },
-    // Modified code from MDN
-    randomInt(min, max) {
-      const minimum = Math.ceil(min);
-      const maximum = Math.floor(max);
-      return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
     },
     endGame() {
       // Play sound notification
