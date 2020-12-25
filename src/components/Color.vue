@@ -2,8 +2,8 @@
   <button
     class="color"
     :style="{ background: generateGradient(hex) }"
-    @click="emitClick($event.target)">
-
+    @click="handleColorClick($event.target)"
+  >
     <span class="color_text">Pick this color</span>
   </button>
 </template>
@@ -11,12 +11,14 @@
 <script>
 export default {
   name: 'Color',
+
   props: {
     hex: String,
     top: Boolean,
   },
+
   methods: {
-    emitClick(event) {
+    handleColorClick(event) {
       this.$emit('clicked', this.hex);
       this.turnAnimation(event);
     },
@@ -43,6 +45,7 @@ export default {
       }, 200);
     },
   },
+
   mounted() {
     window.addEventListener('keyup', (event) => {
       // Top arrow click
