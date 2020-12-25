@@ -21,9 +21,7 @@ export default {
   name: 'Summary',
 
   methods: {
-    getLastScore() {
-      return sessionStorage.score;
-    },
+    getLastScore: () => sessionStorage.score,
     redirectToGame() {
       this.$emit('close');
     },
