@@ -1,17 +1,17 @@
 <template>
   <div class="container">
     <div class="about">
-      <h1 class="about_title">About</h1>
-      <button class="about_close" @click="backToHomepage">←</button>
+      <h1 class="about_heading">About</h1>
+      <button class="about_close" @click="backToHomepage()">←</button>
 
-      <div class="about_content">
-        <div v-for="(article, index) in articles" :key="index">
-          <p class="about_p about_p--title">{{ article.title }}</p>
-          <p class="about_p" v-html="article.content"></p>
-        </div>
-      </div>
+      <ul class="about_list">
+        <li v-for="(article, index) in articles" :key="index" class="about_article">
+          <p class="about_title">{{ article.title }}</p>
+          <p v-html="article.content"></p>
+        </li>
+      </ul>
 
-      <div class="about_button">
+      <div class="about_footer">
         <router-link to="/game" class="button button_full button_animated">Start game</router-link>
       </div>
     </div>
@@ -60,6 +60,12 @@ export default {
     ],
   }),
 
+  methods: {
+    backToHomepage() {
+      this.$router.push('/');
+    },
+  },
+
   mounted() {
     window.addEventListener('keyup', (event) => {
       // On enter click
@@ -68,12 +74,6 @@ export default {
         this.$router.push('game');
       }
     });
-  },
-
-  methods: {
-    backToHomepage() {
-      this.$router.push('/');
-    },
   },
 };
 </script>
@@ -84,68 +84,71 @@ export default {
   margin: 50px 0;
   font-size: 20px;
 
-    &_title {
-      margin: 0 0 40px 0;
-      font-size: 2.2em;
-      position: relative;
-      display: block;
-      text-align: center;
-      background: linear-gradient(#f27121, #e94057);
-      color: transparent;
-      -webkit-background-clip: text;
-      text-transform: uppercase;
-      font-weight: 500;
-      letter-spacing: 1.5px;
-    }
-    &_close {
-      position: absolute;
-      top: 0;
-      left: 0;
-      margin-left: 15px;
-      padding: 10px;
-      font-size: 1.5em;
-      background: transparent;
-      color: #fff;
-      opacity: 0.4;
-      border: 0;
-      transition: 0.3s all;
-      outline: 0;
-      cursor: pointer;
+  &_heading {
+    margin: 0 0 40px 0;
+    font-size: 2.2em;
+    position: relative;
+    display: block;
+    text-align: center;
+    background: linear-gradient(#f27121, #e94057);
+    color: transparent;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+  }
+  &_close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 15px;
+    padding: 10px;
+    font-size: 1.5em;
+    background: transparent;
+    color: #fff;
+    opacity: 0.4;
+    border: 0;
+    transition: 0.3s all;
+    outline: 0;
+    cursor: pointer;
 
-      &:hover {
-        opacity: 0.6;
-      }
+    &:hover {
+      opacity: 0.6;
     }
-    &_content {
-      line-height: 1.5;
-      margin-bottom: 120px;
-    }
-    &_p {
-      color: #a9a9a9;
+  }
+  &_list {
+    line-height: 1.5;
+    margin-bottom: 120px;
+  }
+  &_article {
+    line-height: 1.5;
+    color: #a9a9a9;
 
-        &:nth-child(even) {
-          margin-bottom: 25px;
-        }
-        &--title {
-          color: #fff;
-          font-weight: 500;
-          font-size: 1.2em;
-          margin-bottom: 8px;
-        }
+    &:not(:last-child) {
+      margin-bottom: 25px;
     }
-    &_button {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      padding: 20px 40px;
-      width: 100vw;
-      background: linear-gradient(transparent, #17171f);
-    }
+  }
+  &_title {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+  }
+  &_footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 20px 40px;
+    width: 100vw;
+    background: linear-gradient(transparent, #17171f);
+  }
 }
+
 .container {
   width: 90vh;
   margin: 0 auto;
 }
+
 @media (max-width: 768px) {
   .container {
     padding: 0 30px;
@@ -155,7 +158,7 @@ export default {
   .about {
     font-size: 1em;
 
-      &_title {
+      &_heading {
         font-size: 1.5em;
         text-align: center;
       }
@@ -173,6 +176,7 @@ export default {
       }
   }
 }
+
 // iPhone 5/SE
 @media (max-width: 320px) {
   .about {
@@ -181,7 +185,7 @@ export default {
       &_content {
         margin-bottom: 15px;
       }
-      &_title {
+      &_heading {
         margin: 0 0 25px 0;
       }
   }
