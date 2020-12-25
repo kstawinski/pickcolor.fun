@@ -81,6 +81,7 @@ export default {
 <style lang="scss" scoped>
 .about {
   color: #fff;
+  margin: 50px 0;
   font-size: 20px;
 
     &_title {
@@ -152,7 +153,6 @@ export default {
     margin: unset;
   }
   .about {
-    margin: 50px 0;
     font-size: 1em;
 
       &_title {
