@@ -72,6 +72,7 @@ export default {
       line-height: 1.3;
     }
 }
+
 // Desktop UI
 @media (min-width: 769px) {
   .summary {
