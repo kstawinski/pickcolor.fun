@@ -1,11 +1,16 @@
 <template>
   <div class="summary">
     <div class="summary_container">
-      <div class="summary_result">👌 <span class="summary_score">{{ getLastScore() }}</span></div>
+      <div class="summary_result">
+        👌
+        <span class="summary_score">{{ getLastScore() }}</span>
+      </div>
+
       <p class="summary_text">
         Maybe you'll try one more time?
         <span class="summary_hint">Press <code>enter</code> to start game faster.</span>
       </p>
+
       <button class="button button_animated" @click="redirectToGame">Try again</button>
     </div>
   </div>
@@ -14,6 +19,7 @@
 <script>
 export default {
   name: 'Summary',
+
   methods: {
     getLastScore() {
       return sessionStorage.score;
@@ -22,6 +28,7 @@ export default {
       this.$emit('close');
     },
   },
+
   mounted() {
     window.addEventListener('keyup', (event) => {
       // On enter click
