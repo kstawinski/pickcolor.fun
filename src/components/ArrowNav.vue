@@ -1,12 +1,10 @@
 <template>
-  <div class="arrowNav">
-    <p class="arrowNav_text">
-      Use arrow keyboard for faster navigation.
-      Click <code class="arrowNav_key">↑</code> to select top color,
-      <code class="arrowNav_key">↓</code> to select bottom color,
-      <code class="arrowNav_key">enter</code> to start game.
-    </p>
-  </div>
+  <p class="arrowNav">
+    Use arrow keyboard for faster navigation.
+    Click <code class="arrowNav_key">↑</code> to select top color,
+    <code class="arrowNav_key">↓</code> to select bottom color,
+    <code class="arrowNav_key">enter</code> to start game.
+  </p>
 </template>
 
 <script>
