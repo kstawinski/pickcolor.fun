@@ -1,6 +1,6 @@
 <template>
   <div class="level">
-    <div class="level_icon">{{ emoji() }}</div>
+    <div class="level_icon">{{ getEmoji() }}</div>
     <div class="level_text">{{ level }}</div>
     <div class="level_hint">Level</div>
   </div>
@@ -9,47 +9,32 @@
 <script>
 export default {
   name: 'Level',
+
   props: {
     level: Number,
   },
-  data() {
-    return {
-      levels: [
-        {
-          minimum: 0,
-          emoji: '🙄',
-        },
-        {
-          minimum: 10,
-          emoji: '😐',
-        },
-        {
-          minimum: 20,
-          emoji: '🤨',
-        },
-        {
-          minimum: 30,
-          emoji: '😀',
-        },
-        {
-          minimum: 40,
-          emoji: '😳',
-        },
-        {
-          minimum: 50,
-          emoji: '😱',
-        },
-      ],
-    };
-  },
+
+  data: () => ({
+    levels: [
+      { requiredLevel: 0, emoji: '🙄' },
+      { requiredLevel: 10, emoji: '😐' },
+      { requiredLevel: 20, emoji: '🤨' },
+      { requiredLevel: 30, emoji: '😀' },
+      { requiredLevel: 40, emoji: '😳' },
+      { requiredLevel: 50, emoji: '😱' },
+    ],
+  }),
+
   methods: {
-    emoji() {
+    getEmoji() {
       let emoji = '';
+
       this.levels.forEach((element) => {
-        if (this.level >= element.minimum) {
+        if (this.level >= element.requiredLevel) {
           emoji = element.emoji;
         }
       });
+
       return emoji;
     },
   },
@@ -58,15 +43,11 @@ export default {
 
 <style lang="scss" scoped>
 .level {
-
-    &_text {
-      // color: #fad478;
-      // text-shadow: 0 0 15px #fad478;
-    }
-    &_hint {
-      display: none;
-    }
+  &_hint {
+    display: none;
+  }
 }
+
 // Desktop UI
 @media (min-width: 769px) {
   .level {
