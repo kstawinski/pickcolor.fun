@@ -2,13 +2,15 @@
   <div class="timer">
     <div class="timer_row">
       <div class="timer_bar">
-        <div class="timer_bar--line" :style="{'width': `${time * 50}%`}"></div>
+        <div class="timer_bar--line" :style="{ 'width': `${time * 50}%` }"></div>
       </div>
     </div>
+
     <div class="timer_row timer_text">
       <span class="timer_text--highlight">{{ time.toFixed(1) }}</span>
       s
     </div>
+
     <div class="timer_hint">Remaining time</div>
   </div>
 </template>
@@ -16,6 +18,7 @@
 <script>
 export default {
   name: 'Timer',
+
   props: {
     time: Number,
   },
@@ -49,6 +52,7 @@ export default {
       display: none;
     }
 }
+
 // Desktop UI
 @media (min-width: 769px) {
   .timer {
@@ -74,6 +78,7 @@ export default {
     }
   }
 }
+
 // Mobile UI
 @media (max-width: 768px) {
   .timer {
@@ -97,6 +102,7 @@ export default {
       }
   }
 }
+
 // iPhone 5/SE
 @media (max-width: 320px) {
   .timer {
